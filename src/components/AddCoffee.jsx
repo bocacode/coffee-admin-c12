@@ -2,6 +2,13 @@ import './addCoffee.css'
 
 export default function AddCoffee() {
 
+  const getCoffees = () => {
+    fetch('https://first-deployed-api-c12.web.app/coffees')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(alert)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     // gather form data
@@ -31,6 +38,7 @@ export default function AddCoffee() {
           e.target.recipe.value = ''
           e.target.description.value = ''
           // and then get updated list of coffees...
+          getCoffees()
         }
       })
       .catch(alert)

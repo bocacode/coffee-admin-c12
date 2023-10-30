@@ -18,6 +18,8 @@ export default function AddCoffee({ setCoffees }) {
     const name = e.target.name.value
     const recipe = e.target.recipe.value
     const description = e.target.description.value
+    // PREVENT BLANK INPUTS:
+    if(!name || !recipe || !description) return;
     // create a coffee object
     const newCoffee = { name, recipe, description }
     // POST the newCoffee object to the API

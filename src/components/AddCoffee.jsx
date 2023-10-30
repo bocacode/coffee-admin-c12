@@ -22,7 +22,17 @@ export default function AddCoffee() {
       body: JSON.stringify(newCoffee),
     })
       .then(res => res.json())
-      .then(message => console.log(message))
+      .then(data => {
+        // check if the message is "Success!"
+        if(data.message === "Success!") {
+          // our coffee was added successfully
+          // let's clear the form
+          e.target.name.value = ''
+          e.target.recipe.value = ''
+          e.target.description.value = ''
+          // and then get updated list of coffees...
+        }
+      })
       .catch(alert)
 
   }
